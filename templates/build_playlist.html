@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Recommendation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+    <style>
+        table {
+            padding-top: 0%;
+            width: 80%;
+            border: 1px solid white;
+        }
+        
+        th,
+        td {
+            height: 10px;
+            border: 1px solid white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/clustering">Clustering</a>
+        <a href="/build_playlist" class="active">Build Playlist</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <h1>Playlist Builder</h1>
+
+    <form action="/build_playlist" id="takeInput" method="POST">
+        <p class="formLabel">Enter the Song Name</p>
+        <input type="text" id="song_name" name="song_name" placeholder="Enter the song name">
+        <p class="formLabel">Enter the year the song was released</p>
+        <input type="text" id="year" name="year" placeholder="Enter the year">
+        <input type="submit">
+    </form>
+
+    <br>
+
+</body>
+
+</html>

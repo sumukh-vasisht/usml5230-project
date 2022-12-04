@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Recommendation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+    <style>
+        table {
+            padding-top: 0%;
+            width: 80%;
+            border: 1px solid white;
+        }
+        
+        th,
+        td {
+            height: 10px;
+            border: 1px solid white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="/">Home</a>
+        <a href="/dashboard" class="active">Dashboard</a>
+        <a href="/clustering">Clustering</a>
+        <a href="/build_playlist">Build Playlist</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <h1>EDA Dashboard</h1>
+
+    <br>
+
+    <div class='table'>
+
+        <h3><u>Top 10 popular songs</u></h3>
+        <table align="center" style="margin-left : 125px; margin-top : 50px;">
+            <th>Sl. No.</th>
+            <th>Song Name</th>
+            <th>Popularity </th>
+            {% for i in range(10)%}
+            <tr>
+                <td> {{ i+1 }}</td>
+                <td> {{ sl[i] }}</td>
+                <td> {{ sp[i] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3><u>Top 10 popular genres</u></h3>
+        <table align="center" style="margin-left : 125px; margin-top : 50px;">
+            <th>Sl. No.</th>
+            <th>Genre</th>
+            <th>Popularity </th>
+            {% for i in range(10)%}
+            <tr>
+                <td> {{ i+1 }}</td>
+                <td> {{ gl[i] }}</td>
+                <td> {{ gp[i] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h3><u>Top 10 popular artists</u></h3>
+        <table align="center" style="margin-left : 125px; margin-top : 50px;">
+            <th>Sl. No.</th>
+            <th>Artists</th>
+            <th>Popularity </th>
+            {% for i in range(10)%}
+            <tr>
+                <td> {{ i+1 }}</td>
+                <td> {{ al[i] }}</td>
+                <td> {{ ap[i] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br><br><br><br>
+    </div>
+
+    <div class='plots'>
+        <h3><u>Number of songs from each decade</u></h3>
+        <img src='../static/plots/EDA/music_by_the_decade.png' class='center-image' />
+
+        <br>
+
+        <h3><u>Variation of song features over the years</u></h3>
+        <div class="image-row">
+            <div class="image-column">
+                <img src="../static/plots/EDA/song_variations_year_1.png" class='left-image'>
+            </div>
+            <div class="image-column">
+                <img src="../static/plots/EDA/song_variations_year_2.png" class='right-image'>
+            </div>
+        </div>
+
+        <br>
+
+        <h3><u>Audio features of all tracks</u></h3>
+        <img src='../static/plots/EDA/song_characteristics.png' class='center-image-big' />
+
+        <br>
+
+        <h3><u>Audio features of all genres</u></h3>
+        <img src='../static/plots/EDA/genre_characteristics.png' class='center-image-big' />
+
+        <br>
+
+        <h3><u>Audio features of all artists</u></h3>
+        <img src='../static/plots/EDA/artist_characteristics.png' class='center-image-big' />
+
+        <br>
+
+        <h3><u>Audio features of top 5 songs, genres and artists</u></h3>
+        <img src='../static/plots/EDA/top_songs.png' class='center-image' />
+        <br>
+        <img src='../static/plots/EDA/top_genres.png' class='center-image' />
+        <br>
+        <img src='../static/plots/EDA/top_artists.png' class='center-image' />
+
+    </div>
+
+</body>
+
+</html>

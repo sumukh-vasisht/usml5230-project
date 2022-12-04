@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Recommendation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+    <style>
+        table {
+            padding-top: 0%;
+            width: 80%;
+            border: 1px solid white;
+        }
+        
+        th,
+        td {
+            height: 10px;
+            border: 1px solid white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/clustering" class="active">Clustering</a>
+        <a href="/build_playlist">Build Playlist</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <h1>Clustering</h1>
+
+    <br>
+
+    <div class='plots'>
+        <h3><u>Correlation Plot of features</u></h3>
+        <img src='../static/plots/EDA/correlation_plot.png' class='center-image-corr' />
+
+        <br>
+
+        <h3><u>KMeans Clustering on songs</u></h3>
+        <img src='../static/plots/clustering/kmeans-music.png' class='center-image' />
+
+        <br>
+
+        <h3><u>KMeans Clustering on genres</u></h3>
+        <img src='../static/plots/clustering/kmeans-genre.png' class='center-image' />
+
+        <br>
+
+        <h3><u>KMeans Clustering on artists</u></h3>
+        <img src='../static/plots/clustering/kmeans-artist.png' class='center-image' />
+
+        <br>
+
+    </div>
+
+</body>
+
+</html>

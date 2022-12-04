@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Recommendation System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script type="text/javascript">
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+        function myFunction2(index) {
+            fetch(`${window.origin}/reload`, {
+                method: "POST",
+                credentials: "include",
+                body: JSON.stringify(index),
+                cache: "no-cache",
+                headers: new Headers({
+                    "content-type": "application/json"
+                })
+            });
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        table {
+            padding-top: 0%;
+            width: 80%;
+            border: 1px solid white;
+        }
+        
+        th,
+        td {
+            height: 10px;
+            border: 1px solid white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/clustering">Clustering</a>
+        <a href="/build_playlist" class="active">Build Playlist</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+    </div>
+
+    <h1>Playlist Builder 2</h1>
+
+    <div class='table'>
+
+        <h3><u>Tracks added to playlist</u></h3>
+        <table align="center" style="margin-left : 125px; margin-top : 50px;">
+            <th>Sl. No.</th>
+            <th>Song Name</th>
+            <th>Year</th>
+            {% for i in range(len_track_list)%}
+            <tr>
+                <td> {{ i+1 }}</td>
+                <td> {{ track_list[i]['name'] }}</td>
+                <td> {{ track_list[i]['year'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <h3><u>Recommended Tracks</u></h3>
+        <table align="center" style="margin-left : 125px; margin-top : 50px;">
+            <th>Sl. No.</th>
+            <th>Song Name</th>
+            <th>Year</th>
+            <th>Artist(s)</th>
+            <th></th>
+            {% for i in range(num_recs)%}
+            <tr>
+                <td> {{ i+1 }}</td>
+                <td> {{ recommended_tracks[i]['name'] }}</td>
+                <td> {{ recommended_tracks[i]['year'] }}</td>
+                <td> {{ recommended_tracks[i]['artists'] }}</td>
+                <td>
+                    <form action="/build_playlist_2" id="get_index" method="POST">
+                        <input type="hidden" name="hsname" value="{{i}}">
+                        <input type="submit" id="{{i}}" name="{{i}}" value="Add">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <br>
+
+</body>
+
+</html>
