@@ -44,15 +44,15 @@
         <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
     </div>
 
-    <h1>EDA Dashboard</h1>
+    <h1>Data Analysis</h1>
 
     <br>
 
     <div class='table'>
 
-        <h3><u>Top 10 popular songs</u></h3>
+        <h3><u>Top 10 Popular Songs</u></h3>
         <table align="center" style="margin-left : 125px; margin-top : 50px;">
-            <th>Sl. No.</th>
+            <th>Sr. No.</th>
             <th>Song Name</th>
             <th>Popularity </th>
             {% for i in range(10)%}
@@ -64,9 +64,9 @@
             {% endfor %}
         </table>
 
-        <h3><u>Top 10 popular genres</u></h3>
+        <h3><u>Top 10 Popular Genres</u></h3>
         <table align="center" style="margin-left : 125px; margin-top : 50px;">
-            <th>Sl. No.</th>
+            <th>Sr. No.</th>
             <th>Genre</th>
             <th>Popularity </th>
             {% for i in range(10)%}
@@ -78,9 +78,9 @@
             {% endfor %}
         </table>
 
-        <h3><u>Top 10 popular artists</u></h3>
+        <h3><u>Top 10 Popular Artists</u></h3>
         <table align="center" style="margin-left : 125px; margin-top : 50px;">
-            <th>Sl. No.</th>
+            <th>Sr. No.</th>
             <th>Artists</th>
             <th>Popularity </th>
             {% for i in range(10)%}
@@ -96,7 +96,7 @@
     </div>
 
     <div class='plots'>
-        <h3><u>Number of songs from each decade</u></h3>
+        <h3><u>Count of songs for each decade</u></h3>
         <img src='../static/plots/EDA/music_by_the_decade.png' class='center-image' />
 
         <br>
