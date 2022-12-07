@@ -247,7 +247,8 @@ def build_playlist():
     if request.method == "POST":
 
         track_name = request.form['song_name'].lower()
-        year = int(request.form['year'])
+        # year = int(request.form['year'])
+        year = 2021
         
         track_list.append({'name': track_name, 'year': year}) 
         recommended_tracks = recommend_tracks(track_list, data)
