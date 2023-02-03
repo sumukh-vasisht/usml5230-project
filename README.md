@@ -2,7 +2,7 @@
 
 <h3>Notebooks</h3>
 
-All the notebooks can be found in the folder 'Notebooks'
+All the notebooks can be found the folder 'Notebooks'
 EDA for the data in Notebooks/USML_v2_EDA.ipynb
 Clustering of the data in Notebooks/USML_v2_Clustering.ipynb
 Dimensionality Reduction of the data in Notebooks/USML_v2_Dimensionality_Reduction.ipynb
